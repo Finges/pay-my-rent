@@ -1,0 +1,24 @@
+<%= form_for @building do |f| %>
+<%= f.error_messages %>
+	<p>	
+	  <%= f.label :name %>
+	  <%= f.text_field :name %>
+	</p>  
+	<p>	  
+	  <%= f.label :street %>
+	  <%= f.text_field :street %>
+	</p>
+	<p> 
+	  <%= f.label :city %>
+	  <%= f.text_field :city %>
+	</p>
+	<p> 
+	  <%= f.label :state %>
+	  <%= f.text_field :state %>
+	</p>
+	<p>
+	  <%= f.label :zip %>
+	  <%= f.text_field :zip %>
+	</p>
+	<%= f.submit %> 
+<% end %>
