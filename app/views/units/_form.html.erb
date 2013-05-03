@@ -1,4 +1,5 @@
 <%= form_for [@building,@unit] do |f| %>
+<%= f.error_messages %>
   <p>
   	<%= f.label :unit_num, "Unit Number" %>	
   	<%= f.text_field :unit_num %>
