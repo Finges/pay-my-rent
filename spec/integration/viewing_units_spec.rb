@@ -5,7 +5,7 @@ feature "Viewing units" do
 		building = Factory(:building, :name => "Empire State")
 		unit = Factory(:unit, :unit_num => "A101", :building_id => building.id)
 
-		visit '/'
+		visit '/buildings'
 		click_link 'Empire State'
 		click_link 'A101'
 		page.current_url.should == building_unit_url(building, unit)

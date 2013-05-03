@@ -1,10 +1,13 @@
 PayMyRent::Application.routes.draw do
+  devise_for :users
+
+  get "home/index"
 
   resources :buildings do
     resources :units
   end
   
-  root :to => "buildings#index"
+  root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

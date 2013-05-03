@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Editing buildings" do
 	before do
 		Factory(:building, :name => "Empire State")
-		visit "/"
+		visit "/buildings"
 		click_link "Empire State"
 		click_link "Edit Building"
 	end	
