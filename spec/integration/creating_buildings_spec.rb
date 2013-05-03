@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 feature 'Creating Buildings' do
-	scenario "can create a building" do
-		visit '/'
-
+	before do
+		visit '/buildings'
 		click_link 'New Building'
+	end
+
+	scenario "can create a building" do
 		fill_in 'Name', :with => 'Empire State'
 		fill_in 'Street', :with => '123 Main street'
 		fill_in 'City', :with => 'New York'
@@ -17,8 +19,6 @@ feature 'Creating Buildings' do
 	end
 
 	scenario 'Can not create a building without a name' do
-		visit '/'
-		click_link 'New Building'
 		click_button 'Create Building'
 		page.should have_content("Building has not been created.")
 		page.should have_content("Name can't be blank")	

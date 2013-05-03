@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Creating Units' do
 	before do
 		Factory(:building, :name => "Empire State")
-		visit '/'
+		visit '/buildings'
 		click_link 'Empire State'
 		click_link 'Add Unit'
 	end
