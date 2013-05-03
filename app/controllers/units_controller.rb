@@ -1,5 +1,5 @@
 class UnitsController < ApplicationController
-
+	before_filter :find_unit, :only => [:show, :edit, :update, :destroy]	
 	def index
 		@units = Unit.all
 		@building = Building.find(params[:building_id])
@@ -50,4 +50,13 @@ class UnitsController < ApplicationController
 		flash[:notice] = "Unit has been deleted."
 		redirect_to building_units_path
 	end
+
+	private
+		def find_unit
+			@unit = Unit.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+			flash[:alert] = "The unit you were looking for could not be found."
+			redirect_to building_units_path
+			
+		end
 end
