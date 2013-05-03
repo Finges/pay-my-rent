@@ -43,4 +43,11 @@ class UnitsController < ApplicationController
 			render :action => "edit"
 		end
 	end
+
+	def destroy
+		@unit = Unit.find(params[:id])
+		@unit.destroy
+		flash[:notice] = "Unit has been deleted."
+		redirect_to building_units_path
+	end
 end
