@@ -1,4 +1,5 @@
 PayMyRent::Application.routes.draw do
+
   resources :buildings do
     resources :units
   end
