@@ -1,5 +1,6 @@
 <h2><%= @building.name %></h2>
 
+<%= link_to "Add Unit", new_building_unit_path(@building) %>
 <%= link_to "Edit Building", edit_building_path(@building) %>
 <%= link_to "Delete Building", building_path(@building), :method => :delete,
 		:confirm => "Are you sure you want to delete this building?" %>

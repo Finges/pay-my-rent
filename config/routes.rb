@@ -1,5 +1,8 @@
 PayMyRent::Application.routes.draw do
-  resources :buildings 
+  resources :buildings do
+    resources :units
+  end
+  
   root :to => "buildings#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

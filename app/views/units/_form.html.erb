@@ -1,0 +1,11 @@
+<%= form_for [@building,@unit] do |f| %>
+  <p>
+  	<%= f.label :unit_num, "Unit Number" %>	
+  	<%= f.text_field :unit_num %>
+  </p>
+  <p>
+  	<%= f.label :rent %>	
+  	<%= f.text_field :rent %>
+  </p>
+  <%= f.submit %>
+<% end %>

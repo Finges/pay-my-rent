@@ -1,5 +1,5 @@
 class BuildingsController < ApplicationController
-
+	before_filter :find_building, :only => [:show, :edit, :update, :destroy]
 	def index
 		@buildings = Building.all	
 	end
@@ -45,4 +45,12 @@ class BuildingsController < ApplicationController
 		flash[:notice] = "Building has been deleted."
 		redirect_to buildings_path
 	end
+
+	private
+		def find_building
+			@building = Building.find(params[:id])
+			rescue ActiveRecord::RecordNotFound
+			flash[:alert] = "The building you were looking for could not be found."
+			redirect_to buildings_path
+		end
 end
