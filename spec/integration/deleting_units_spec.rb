@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 feature "Deleting Units" do
+	before do
+		sign_in_as!(Factory(:admin_user))
+	end
 	scenario "Deleting a unit" do
 		building = Factory(:building, :name => "Empire State")
 		unit = Factory(:unit, :unit_num => "A101", :building_id => building.id)

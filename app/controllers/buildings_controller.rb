@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+	before_filter :authorize_admin!, :except => [:index, :show]
 	before_filter :find_building, :only => [:show, :edit, :update, :destroy]
 	def index
 		@buildings = Building.all	
@@ -53,4 +54,12 @@ class BuildingsController < ApplicationController
 			flash[:alert] = "The building you were looking for could not be found."
 			redirect_to buildings_path
 		end
+
+		def authorize_admin!
+			authenticate_user!
+			unless current_user.admin?
+				flash[:alert] = "You must be an admin or landlord to do that."
+				redirect_to root_path
+			end
+		end		
 end

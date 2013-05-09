@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Creating Buildings' do
 	before do
+		sign_in_as!(Factory(:admin_user))
 		visit '/buildings'
 		click_link 'New Building'
 	end

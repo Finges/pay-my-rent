@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Creating Units' do
 	before do
+		sign_in_as!(Factory(:admin_user))
 		Factory(:building, :name => "Empire State")
 		visit '/buildings'
 		click_link 'Empire State'

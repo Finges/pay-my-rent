@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Editing unit' do
 	before do
+		sign_in_as!(Factory(:admin_user))
 		building = Factory(:building, :name => 'Empire State')
 		Factory(:unit, :unit_num => 'A101', :building_id => building.id)
 		visit "/buildings"

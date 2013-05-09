@@ -1,6 +1,9 @@
 require "spec_helper"
 
 feature "Deleting buildings" do
+	before do
+		sign_in_as!(Factory(:admin_user))
+	end
 	scenario "Deleting a building" do
 		Factory(:building, :name => "Empire State")
 		visit "/buildings"
