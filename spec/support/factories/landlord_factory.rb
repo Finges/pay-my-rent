@@ -4,6 +4,6 @@ FactoryGirl.define do
 		password "password"
 		password_confirmation "password"
 		name "landlord"
-		confirmed_at Time.now
+		confirmed_at {Time.now}
 	end
 end

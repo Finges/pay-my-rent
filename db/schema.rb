@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516203030) do
+ActiveRecord::Schema.define(:version => 20130520195819) do
 
   create_table "buildings", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20130516203030) do
     t.datetime "updated_at",  :null => false
     t.integer  "landlord_id"
   end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "user_id"
+    t.float    "amount"
+    t.float    "amount_due"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "payments", ["user_id"], :name => "index_payments_on_user_id"
 
   create_table "units", :force => true do |t|
     t.integer  "building_id"

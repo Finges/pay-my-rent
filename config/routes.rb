@@ -1,5 +1,7 @@
 PayMyRent::Application.routes.draw do
 
+  get "tenant/index"
+
   devise_for :users
 
   get "home/index"

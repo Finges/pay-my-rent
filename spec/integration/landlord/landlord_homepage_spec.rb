@@ -12,7 +12,6 @@ feature "Landlord Landing page" do
 		click_button "Sign in"
 	end
   scenario "Displays all buildings belonging to the landlord" do
-  	save_and_open_page
     page.should have_content("Empire State")
     page.should have_content("Columbia Tower")
   end

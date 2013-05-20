@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
 	  def after_sign_in_path_for(resource)
 	  	if current_user.type == "Landlord"
 	  		landlord_index_url
+	  	elsif current_user.type == "Tenant"
+	  		tenant_index_url
 	  	else
 	  		root_path
 	  	end
