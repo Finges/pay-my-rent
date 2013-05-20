@@ -4,6 +4,8 @@ PayMyRent::Application.routes.draw do
 
   get "home/index"
 
+  resources :landlord
+
   resources :buildings do
     resources :units
   end

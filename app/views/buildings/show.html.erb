@@ -4,7 +4,7 @@
 <h3>Units In Building</h3>
 <ul>
 	<% @building.units.each do |unit| %>
-		<li><%= link_to unit.unit_num, [@building,unit] %> </li>
+		<li><%= link_to unit.unit_num, [@building,unit] %> | <%= unit.tenant %></li>
 	<% end %>
 </ul>
 <%= link_to "Add Unit", new_building_unit_path(@building) %>

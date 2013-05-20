@@ -3,4 +3,6 @@ class Building < ActiveRecord::Base
   validates :name, :presence => true
   has_many :units
   has_many :users, :through => :units
+  has_many :tenants, :through => :units
+  belongs_to :landlord
 end

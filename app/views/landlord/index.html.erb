@@ -1,0 +1,8 @@
+<h2>Landlord Landing Page</h2>
+
+<ul>
+	<% @landlord.buildings.each do |building| %>
+		<li><%= link_to building.name, building %> 
+			| Total Units: <%= building.units.count %>
+	<% end %>
+</ul>

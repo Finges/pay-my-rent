@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'Signing in' do
 	before do
 		Factory(:user, :email => "paymyrent@example.com")
+		Factory(:landlord)
 	end
 	scenario 'Signing in via confirmation' do
 		open_email "paymyrent@example.com", :with_subject => /Confirmation/
@@ -20,4 +21,16 @@ feature 'Signing in' do
 		click_button 'Sign in'
 		page.should have_content("Signed in successfully.")
 	end
+
+	scenario 'Signing in as a landlord, lands you on the landlord dashboard' do
+		visit '/'
+		click_link "Sign in"
+		fill_in "Email", with: Landlord.first.email
+		fill_in "Password", with: "password"
+		click_button 'Sign in'
+		page.should have_content("Signed in successfully.")
+		page.current_url.should == landlord_index_url
+	end
+
 end
+
