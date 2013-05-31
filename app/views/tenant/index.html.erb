@@ -1,2 +1,10 @@
 <h2>Tenant Homepage</h2>
 Welcome, <%= @tenant.name %>
+
+<h2>Current Payments</h2>
+
+<ul>
+	<% @tenant.payments.each do |payment| %>
+		<li><%= number_to_currency(payment.amount) %> | <%= number_to_currency(payment.amount_due) %></li>
+	<% end %>
+</ul>

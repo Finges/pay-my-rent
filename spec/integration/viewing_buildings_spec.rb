@@ -5,6 +5,7 @@ feature "Viewing Buildings" do
 		building = Factory.create(:building, :name => "Empire State")
 		visit '/buildings'
 		click_link 'Empire State'
-		page.current_url.should == building_url(building)
+		save_and_open_page
+			page.current_url.should == building_url(building)
 	end
 end
